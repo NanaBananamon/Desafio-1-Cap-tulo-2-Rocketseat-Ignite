@@ -7,8 +7,8 @@ import { Container, Cart } from './styles';
 import { useCart } from '../../hooks/useCart';
 
 const Header = (): JSX.Element => {
-  // const { cart } = useCart();
-  // const cartSize = // TODO;
+  const { cart } = useCart();
+  const cartSize = cart.length; /*--ALTERAÇÃO FEITA: Tipos de itens*/
 
   return (
     <Container>
@@ -20,7 +20,7 @@ const Header = (): JSX.Element => {
         <div>
           <strong>Meu carrinho</strong>
           <span data-testid="cart-size">
-            {/* {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`} */}
+            {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}
           </span>
         </div>
         <MdShoppingBasket size={36} color="#FFF" />
@@ -30,3 +30,6 @@ const Header = (): JSX.Element => {
 };
 
 export default Header;
+
+/*--ALTERAÇÃO FEITA LINHA 23: Apenas foi descomentada, mas ela apenas determina a escita da palavra
+'item' caso tenha apenas 1 e 'itens' caso o cliente seja rico de gastar 500 reais em tênis*/
